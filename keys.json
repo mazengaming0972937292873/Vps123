@@ -1,0 +1,14 @@
+const fs = require("fs");
+
+router.get("/", async (req, res) => {
+  const { type, api_key } = req.query;
+
+  // فحص هل المفتاح موجود في ملف الـ keys.json
+  const savedKeys = JSON.parse(fs.readFileSync("./keys.json") || "{}");
+  
+  if (!savedKeys[api_key]) {
+    return res.status(403).json({ error: "API Key غير صالح أو منتهي" });
+  }
+
+  // كود الـ OTP بتاعك بيكمل هنا عادي...
+});
