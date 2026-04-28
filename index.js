@@ -1,6 +1,8 @@
 const express = require("express");
 const https   = require("https");
 const zlib    = require("zlib");
+const adminRoute = require("./admin"); // استدعاء الملف الجديد
+app.use("/admin", adminRoute); // تفعيل المسار
 
 const router = express.Router();
 
